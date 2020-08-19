@@ -64,6 +64,18 @@
             "metadata": {
                 "description": "prefix of subnet 3"
             }
+        },
+        "nsgName": {
+            "type": "string",
+            "metadata": {
+                "description": "name of nsg to provision subnets with"
+            }
+        },
+        "nsgResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource group of nsg"
+            }
         }
     },
     "functions": [],
@@ -84,22 +96,28 @@
                 {
                 "name": "[parameters('subnet1Name')]",
                 "properties": {
-                    "addressPrefix": "[parameters('subnet1Prefix')]"
-                    
+                    "addressPrefix": "[parameters('subnet1Prefix')]",
+                    "networkSecurityGroup": {
+                        "id": "[resourceId(parameters('nsgResourceGroup'),'Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
+                    }
                 }
                 },
                 {
                 "name": "[parameters('subnet2Name')]",
                 "properties": {
-                    "addressPrefix": "[parameters('subnet2Prefix')]"
-                    
+                    "addressPrefix": "[parameters('subnet2Prefix')]",
+                    "networkSecurityGroup": {
+                        "id": "[resourceId(parameters('nsgResourceGroup'),'Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
+                    }
                 }
                 },
                 {
                 "name": "[parameters('subnet3Name')]",
                 "properties": {
-                    "addressPrefix": "[parameters('subnet3Prefix')]"
-                   
+                    "addressPrefix": "[parameters('subnet3Prefix')]",
+                    "networkSecurityGroup": {
+                        "id": "[resourceId(parameters('nsgResourceGroup'),'Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
+                    }
                 }
                 }
             ]

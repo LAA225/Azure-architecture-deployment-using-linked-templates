@@ -25,6 +25,12 @@
         },
         "subnet3Prefix": {
             "value": "10.0.2.0/24"
+        },
+        "nsgName": {
+            "value": "nsg-test-eastus-001" 
+        },
+        "nsgResourceGroup": {
+            "value": "rg-test-arm" 
         }
     }
 }

@@ -14,6 +14,9 @@
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-10-01",
         "name": "[variables('vnetTemplateName')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Resources/deployments',variables('nsgTemplateName'))]"
+        ],
         "properties": {
           "mode": "Incremental",
           "templateLink": {
@@ -30,9 +33,9 @@
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-10-01",
         "name": "[variables('nsgTemplateName')]",
-        "dependsOn": [
-            "[resourceId('Microsoft.Resources/deployments',variables('vnetTemplateName'))]"
-        ],
+        // "dependsOn": [
+        //     "[resourceId('Microsoft.Resources/deployments',variables('vnetTemplateName'))]"
+        // ],
         "properties": {
           "mode": "Incremental",
           "templateLink": {
