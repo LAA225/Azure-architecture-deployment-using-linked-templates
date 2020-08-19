@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "value": "LinuxVM"
+        },
+        "adminUsername": {
+            "value": "user2" 
+        },
+        "authenticationType": {
+            "value": "password"
+        },
+        "adminPasswordOrKey": {
+            "value": "$y*;xv/w>6WW`Z/Z4#[="  
+        },
+        "ubuntuOSVersion": {
+            "value": "18.04-LTS"
+        },
+        "location": {
+            "value": ""  
+        },
+        "VmSize": {
+            "value": "Standard_B1s"
+        },
+        "virtualNetworkName": {
+            "value": ""  
+        },
+        "subnetName": {
+            "value": "DMZ"
+        },
+        "networkSecurityGroupName": {
+            "value": "nsg-test-eastus-001"
+        },
+        "resourceGroupName": {
+            "value": "rg-test-arm"  
+        }
+    }
+}
