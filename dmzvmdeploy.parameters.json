@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
-            "value": "LinuxVM"
+            "value": "vm-dmz-001"
         },
         "adminUsername": {
-            "value": "user2" 
+            "value": "user674" 
         },
         "authenticationType": {
             "value": "password"
@@ -17,14 +17,11 @@
         "ubuntuOSVersion": {
             "value": "18.04-LTS"
         },
-        "location": {
-            "value": ""  
-        },
         "VmSize": {
             "value": "Standard_B1s"
         },
         "virtualNetworkName": {
-            "value": ""  
+            "value": "vnet-test-eastus-001"  
         },
         "subnetName": {
             "value": "DMZ"

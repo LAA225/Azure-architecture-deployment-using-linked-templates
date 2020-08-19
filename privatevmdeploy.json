@@ -87,7 +87,7 @@
         }
     },
     "variables": {
-        "ipconfigName": "[concat('ipConfig',variables('subnetRef'))]",
+        "ipconfigName": "[concat('ipConfig',parameters('virtualNetworkName'))]",
         "networkInterfaceName": "[concat(parameters('vmName'),'NetInt')]",
         "subnetRef": "[resourceId(parameters('resourceGroupName'),'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
         "osDiskType": "Standard_LRS",

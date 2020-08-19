@@ -1,0 +1,105 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "vnetTemplateName": "vnetTemplate",
+        "nsgTemplateName": "nsgTemplate",
+        "jumpBoxTemplateName": "jumpBoxTemplate",
+        "vmWebTemplateName": "vmWebTemplate",
+        "vmDataTemplateName": "vmDataTemplate"
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-10-01",
+        "name": "[variables('vnetTemplateName')]",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/vnetdeploy.json",
+            "contentVersion":"1.0.0.0"
+          },
+          "parametersLink": {
+              "uri": "https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/vnetdeploy.parameters.json",
+              "contentVersion": "1.0.0.0"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-10-01",
+        "name": "[variables('nsgTemplateName')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Resources/deployments',variables('vnetTemplateName'))]"
+        ],
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/nsgdeploy.json",
+            "contentVersion":"1.0.0.0"
+          },
+          "parametersLink": {
+            "uri": "https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/nsgdeploy.parameters.json"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-10-01",
+        "name": "[variables('vmWebTemplateName')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Resources/deployments',variables('nsgTemplateName'))]"
+        ],
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/privatevmdeploy.json",
+            "contentVersion":"1.0.0.0"
+          },
+          "parametersLink": {
+              "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/webvmdeploy.parameters.json"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-10-01",
+        "name": "[variables('vmDataTemplateName')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Resources/deployments',variables('nsgTemplateName'))]"
+        ],
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/privatevmdeploy.json",
+            "contentVersion":"1.0.0.0"
+          },
+          "parametersLink": {
+              "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/datavmdeploy.parameters.json"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-10-01",
+        "name": "[variables('JumpBoxTemplateName')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Resources/deployments',variables('vmWebTemplateName'))]",
+            "[resourceId('Microsoft.Resources/deployments',variables('vmDataTemplateName'))]"
+        ],
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/publicvmdeploy.json",
+            "contentVersion":"1.0.0.0"
+          },
+          "parametersLink": {
+              "uri":"https://raw.githubusercontent.com/LAA225/Azure-architecture-deployment-using-linked-templates/master/dmzvmdeploy.parameters.json"
+          }
+        }
+      }
+    ],
+    "outputs": {
+    }
+  }

@@ -6,16 +6,13 @@
             "value": "vm-web-001"
         },
         "adminUsername": {
-            "value": "user" 
+            "value": "user786" 
         },
         "authenticationType": {
             "value": "password"
         },
         "adminPasswordOrKey": {
             "value": "2raq*'?rW~n^m'!nW<6v"
-        },
-        "dnsLabelPrefix": {
-            "value": "webprivatevm786" 
         },
         "ubuntuOSVersion": {
             "value": "18.04-LTS"

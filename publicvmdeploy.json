@@ -94,7 +94,7 @@
         }
     },
     "variables": {
-        "ipconfigName": "[concat('ipConfig',variables('subnetRef'))]",
+        "ipconfigName": "[concat('ipConfig',parameters('virtualNetworkName'))]",
         "publicIpAddressName": "[concat(parameters('vmName'), 'PublicIP' )]",
         "networkInterfaceName": "[concat(parameters('vmName'),'NetInt')]",
         "subnetRef": "[resourceId(parameters('resourceGroupName'),'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",

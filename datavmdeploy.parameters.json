@@ -6,16 +6,13 @@
             "value": "vm-data-001"
         },
         "adminUsername": {
-            "value": "user1" 
+            "value": "user999" 
         },
         "authenticationType": {
             "value": "password"
         },
         "adminPasswordOrKey": {
             "value": "gD(a8kP}M5U#gJ^RrgHG"
-        },
-        "dnsLabelPrefix": {
-            "value": "dataprivatevm786" 
         },
         "ubuntuOSVersion": {
             "value": "18.04-LTS"
