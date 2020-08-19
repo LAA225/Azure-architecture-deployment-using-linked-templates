@@ -98,7 +98,7 @@
                 "properties": {
                     "addressPrefix": "[parameters('subnet1Prefix')]",
                     "networkSecurityGroup": {
-                        "id": "[resourceId(parameters('nsgResourceGroup'),'Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
                     }
                 }
                 },
@@ -107,7 +107,7 @@
                 "properties": {
                     "addressPrefix": "[parameters('subnet2Prefix')]",
                     "networkSecurityGroup": {
-                        "id": "[resourceId(parameters('nsgResourceGroup'),'Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
                     }
                 }
                 },
@@ -116,7 +116,7 @@
                 "properties": {
                     "addressPrefix": "[parameters('subnet3Prefix')]",
                     "networkSecurityGroup": {
-                        "id": "[resourceId(parameters('nsgResourceGroup'),'Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroup',parameters('nsgName'))]"
                     }
                 }
                 }
