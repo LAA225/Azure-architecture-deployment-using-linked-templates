@@ -9,7 +9,7 @@
             "value": "DMZ"  
         },
         "subnet2Name": {
-            "value": "Web"  
+            "value": "Private"  
         },
         "subnet3Name": {
             "value": "Data"  
