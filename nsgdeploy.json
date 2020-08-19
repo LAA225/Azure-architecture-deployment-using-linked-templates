@@ -92,7 +92,10 @@
                 "networkSecurityGroup": {
                 "id": "[resourceId('Microsoft.Network/networkSecurityGroups',variables('networkSecurityGroupName'))]"
                 }
-            }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups',variables('networkSecurityGroupName'))]"
+            ]
         },
         {
             "apiVersion": "2018-11-01",
@@ -104,7 +107,10 @@
                 "networkSecurityGroup": {
                 "id": "[resourceId('Microsoft.Network/networkSecurityGroups',variables('networkSecurityGroupName'))]"
                 }
-            }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups',variables('networkSecurityGroupName'))]"
+            ]
         },
         {
             "apiVersion": "2018-11-01",
@@ -116,7 +122,10 @@
                 "networkSecurityGroup": {
                 "id": "[resourceId('Microsoft.Network/networkSecurityGroups',variables('networkSecurityGroupName'))]"
                 }
-            }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups',variables('networkSecurityGroupName'))]"
+            ]
         }
     ],
     "outputs":{}
